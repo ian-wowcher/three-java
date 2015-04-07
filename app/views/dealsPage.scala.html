@@ -1,0 +1,24 @@
+@(dealsListing: DealsListing)(implicit context: WowcherContext)
+@showMainDeal = @{ if((dealsListing.filter.page > 1) || (context.request.path contains "/search")) false else true }
+
+@main("Welcome to Wowcher") {
+    @if(!dealsListing.deals.isEmpty) {
+
+        <section class="content">
+        @views.html.deals.dealList(dealsListing.deals, showMainDeal, true)
+        </section>
+
+    } else {
+        <section class="error">
+            <h1>Sorry we couldn't find any matching deals</h1>
+        </section>
+    }
+    @if(!dealsListing.deals.isEmpty) {
+        <section class="sidebar">
+        @views.html.deals.dealList(dealsListing.deals.subList(1, dealsListing.deals.size() - 1), false, false)
+        </section>
+    }
+    @if(!dealsListing.deals.isEmpty) {
+        @views.html.includes.pagination(dealsListing.filter.page, 10, dealsListing.total, dealsListing.totalPages)
+    }
+}

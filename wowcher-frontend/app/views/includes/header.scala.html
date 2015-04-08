@@ -1,0 +1,42 @@
+@()(implicit context: WowcherContext)
+<header id="header">
+    <div>
+        <a id="logo" href="/"></a>
+        <label for="location-select" id="location-label">
+            <div id="user-details"></div>
+            <select id="location-select">
+                @for(location <- context.locations) {
+                <option value="@location.id" @if(context.location == location.id){selected="selected"}>@location.name</option>
+                }
+            </select>
+        </label>
+        <form action="/@context.location/search" id="search-form">
+            <label for="search-box" id="search-label">
+                <input type="text" id="search-box" name="q" placeholder="Search" class="js-autocomplete" autofocus @if(context.request.queryString.contains("q")) { value="@context.request.queryString("q")" } />
+            </label>
+            <button type="submit" value="Search" id="search-submit">
+                <i>Search</i>
+            </button>
+            @****
+            Skip links are here as search input has autofocus applied to it
+            ****@
+            <ul class="wai">
+                <li>
+                    <a href="#content">Skip to content</a>
+                </li>
+                <li>
+                    <a href="#menu">Skip to navigation</a>
+                </li>
+                <li>
+                    <a href="#location-select">Skip to location select</a>
+                </li>
+                <li>
+                    <a href="#search-box">Skip to search</a>
+                </li>
+            </ul>
+        </form>
+        <a href="#" id="search-button"></a>
+        <span class="promise"></span>
+    </div>
+    @views.html.includes.menu()
+</header>

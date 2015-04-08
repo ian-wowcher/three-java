@@ -1,0 +1,61 @@
+@import generic.Utils
+
+
+@(  page:Int,
+    pageLength:Int,
+    collectionLength:Int,
+    totalPages:Int,
+    bound:Int = 10)(implicit context: WowcherContext)
+
+@lowbound() = @{
+    ((page.toDouble / bound).floor * bound) toInt
+}
+
+@highbound() = @{
+    if ((lowbound() + bound) * pageLength >= collectionLength)
+        collectionLength / pageLength
+    else
+        lowbound() + bound
+}
+
+@lastpage() = @{
+    collectionLength / pageLength
+}
+
+@paginationUrl(p:Int) = @{
+
+    Utils.printUrl(context, Map("page" -> s"$p"))
+}
+
+@if(totalPages > 1){
+
+    <div class="pagination">
+        <ul>
+
+            @if(page >= bound) {
+                <li><a href="@paginationUrl(1)">&laquo;</a></li>
+            }
+            @if(page > 1){
+                <li><a href="@paginationUrl(page-1)">Previous</a></li>
+            }
+
+            @for(i <- lowbound().max(1) until page) {
+                <li><a href="@paginationUrl(i)">@i</a></li>
+            }
+
+            <li class="active">@page</li>
+
+            @for(i <- page+1 to highbound()) {
+                <li><a href="@paginationUrl(i)">@i</a></li>
+            }
+
+            @if(page < highbound()) {
+                <li><a href="@paginationUrl(page+1)">Next</a></li>
+            }
+
+            @if(highbound() * pageLength <= collectionLength && highbound() > page && page * pageLength != collectionLength) {
+                <li><a href="@paginationUrl(lastpage())">&raquo;</a></li>
+            }
+        </ul>
+    </div>
+}

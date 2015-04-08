@@ -1,0 +1,50 @@
+@()(implicit context: WowcherContext)
+<div class="lightbox-mask" id="js-lightbox-mask"></div>
+    <div class="lightbox" id="js-lightbox">
+        <div class="wrap">
+        <div class="lightbox-content">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="text">
+                    <h2>Save up to 80% on Deals where you live</h2>
+                    <p>Sign up to hear about the best deals on local services, shopping and travel</p>
+                </div>
+            </div>
+            <section class="main-body">
+                <div class="gallery-block">
+                    <img alt="beauty" src="//www.wowcher.co.uk/images/dod/new/beauty_1.jpg" />
+                    <img alt="activities" src="//www.wowcher.co.uk/images/dod/new/activities_2.jpg" />
+                    <img alt="travel" src="//www.wowcher.co.uk/images/dod/new/travel_3.jpg" class="last"/>
+                    <img alt="fitness" src="//www.wowcher.co.uk/images/dod/new/fitness_4.jpg" class="row-2" />
+                    <img alt="learning" src="//www.wowcher.co.uk/images/dod/new/learning_5.jpg" class="row-2"  />
+                    <img alt="restaurant" src="//www.wowcher.co.uk/images/dod/new/restaurant_6.jpg" class="row-2 last" />
+                    <div class="wow">
+                        <div class="cnt">
+                            <div class="intro">SAVE up to</div>
+                            <div class="price">80<span>%</span></div>
+                        </div>
+                    </div>
+                </div>
+                <form action="/">
+                    <label for="email">
+                        <input id="email" type="text" placeholder="Email address" />
+                    </label>
+                    <label for="email-location-select">
+                        <select id="email-location-select">
+                            @for(location <- context.locations) {
+                                <option value="@location.id" @if(context.location == location.id){selected="selected"}>
+                                    @location.name
+                                </option>
+                            }
+                        </select>
+                    </label>
+                    <p>By entering your email address you are agreeing to our <a href="/@context.location/terms" target="_blank">Terms of use</a> and <a href="/@context.location/privacy" target="_blank">Privacy &amp; Cookies policy</a></p>
+                    <input type="submit" value="Sign Up" />
+                </form>
+            </section>
+            <p>
+                <a class="close js-close" href="#">Already signed up?</a>
+            </p>
+        </div>
+    </div>
+</div>

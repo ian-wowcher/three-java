@@ -1,0 +1,13 @@
+@()(implicit context: WowcherContext)
+<footer>
+    <a href="/" class="logo"></a>
+    <ul>
+        <li><a href="/@context.location/about" title="About us">About us</a></li>
+        <li><a href="/@context.location/faq" title="Contact us">Contact us</a></li>
+        <li><a href="/@context.location/terms" title="Terms of use">Terms of use</a></li>
+        <li><a href="/@context.location/privacy" title="Privacy &amp; Cookies policy">Privacy &amp; Cookies policy</a></li>
+        <li><a href="/@context.location/e-commerceterms" title="E-commerce terms">E-commerce terms</a></li>
+    </ul>
+    <p>&copy; 2014 Wowcher. All rights reserved</p>
+    @views.html.includes.footerJS()
+</footer>

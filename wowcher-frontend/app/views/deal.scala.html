@@ -1,0 +1,14 @@
+@(dealListing: DealListing, dealsListing: DealsListing)(implicit context: WowcherContext)
+
+@main(dealListing.deal.title){
+    <section class="content">
+        @views.html.deals.mainDeal(dealListing.deal)
+        @views.html.deals.dealList(dealsListing.deals, false, true)
+    </section>
+
+    @if(dealsListing.deals.nonEmpty) {
+        <section class="sidebar">
+            @views.html.deals.dealList(dealsListing.deals, false, false)
+        </section>
+    }
+}

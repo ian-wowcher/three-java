@@ -1,0 +1,16 @@
+@(title: String)(content: Html)(implicit context: WowcherContext)<!DOCTYPE HTML>
+<html>
+    @views.html.includes.head(title)
+    <body>
+        <div id="js-site-wrap" class="site-wrap">
+            @views.html.includes.header()
+            <div id="site">
+                <div class="main">
+                    @content
+                </div>
+                @views.html.includes.footer()
+            </div>
+        </div>
+        @views.html.email.emailOverlay()
+    </body>
+</html>

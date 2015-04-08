@@ -1,0 +1,10 @@
+@(staticPageListing: StaticPageListing)(implicit context: WowcherContext)
+@main(staticPageListing.page.title) {
+    <section class="content static-page @staticPageListing.page.id">
+        <div class="gradient-bg">
+            @Html(staticPageListing.page.body)
+        </div>
+    </section>
+
+    <script>WOW.reg('modules/@staticPageListing.page.id');</script>    
+}

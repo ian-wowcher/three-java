@@ -1,0 +1,53 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# remove trailing /
+GET        /*path/                                  controllers.WowcherApplication.untrail(path: String)
+
+# Deal pages
+
+GET        /                                        controllers.WowcherApplication.indexRedirect
+
+#should redirect user not render /deals
+
+GET        /deals                                   controllers.WowcherApplication.locationDeals(location: String = "london")
+
+GET        /deals/$id<[0-9]{1,10}>                  controllers.WowcherApplication.dealRedirect(id: Int)
+
+GET        /deals/:location/$id<[0-9]{1,10}>        controllers.WowcherApplication.deal(location: String, id: Int)
+
+GET        /deals/:location                         controllers.WowcherApplication.locationDeals(location: String)
+
+GET        /deals/:location/:category               controllers.WowcherApplication.locationCategoryDeals(location: String, category: String)
+
+
+
+
+# search
+
+GET        /:location/search                      controllers.WowcherApplication.dealsSearch(location: String, q:String ?= "")
+
+GET        /:location/search/:q                   controllers.WowcherApplication.dealsSearch(location: String, q: String)
+
+GET        /autocomplete                          controllers.WowcherApplication.typeahead(locationId: String, q: String)
+
+
+#static pages
+
+GET        /:location/about                       controllers.WowcherApplication.callStaticPage(location: String, pageName = "aboutus")
+
+GET        /:location/contact                     controllers.WowcherApplication.callStaticPage(location: String, pageName = "contact")
+
+GET        /:location/terms                       controllers.WowcherApplication.callStaticPage(location: String, pageName = "terms")
+
+GET        /:location/privacy                     controllers.WowcherApplication.callStaticPage(location: String, pageName = "privacy")
+
+GET        /:location/e-commerceterms             controllers.WowcherApplication.callStaticPage(location: String, pageName = "e-commerceterms")
+
+GET        /:location/faq                         controllers.WowcherApplication.callStaticPage(location: String, pageName = "faq")
+
+GET        /status                                controllers.WowcherApplication.status
+
+# Map static resources from the /public folder to the /assets URL path
+#GET        /assets/*file           controllers.Assets.at(path="/public", file)

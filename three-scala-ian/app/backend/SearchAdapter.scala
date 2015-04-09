@@ -3,7 +3,7 @@ package backend
 import model.{SimpleDealsListing, Location, SimpleDeal}
 
 /** I have bodged a "search" adapter here.
-* In Three, getDeals returns a Future[DealsListing]
+* In Three-Scala, getDeals returns a Future[DealsListing]
   *
   * Here, I am instead retrieving a list of simple deals.
   */

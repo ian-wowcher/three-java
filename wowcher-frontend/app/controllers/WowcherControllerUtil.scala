@@ -48,7 +48,6 @@ trait WowcherControllerUtil {
     Ok(JsonUtility.printPretty(obj)).as("text/json")
   }
 
-
   //remove trailing slashes and redirect accordingly
   def untrail(path: String) = Action {
     MovedPermanently("/" + path)

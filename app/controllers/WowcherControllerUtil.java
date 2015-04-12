@@ -28,13 +28,10 @@ public class WowcherControllerUtil extends Controller {
     * */
     public static F.Promise<Result> WowcherAction(WowcherContext wowcherContext,
                                                                Function<WowcherContext, Result> view_generation_code){
-
         WowcherContext createdWowcherContext = WowcherContext.createWowcherContextWithRequest(wowcherContext, request());
 
-
         //invoke the passed in function
-        return F.Promise.promise(() -> view_generation_code.apply(createdWowcherContext))
-                .map((Integer result) -> ok(index.render("The number I have been given is " + result)));
+        return F.Promise.promise(() -> view_generation_code.apply(createdWowcherContext));
     }
 
     private static WowcherContext createWowcherContext() {

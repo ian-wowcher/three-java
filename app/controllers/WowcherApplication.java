@@ -6,15 +6,12 @@ import play.libs.F;
 import play.mvc.Controller;
 import play.mvc.Result;
 import util.WowcherContext;
+import views.*;
 
 import java.util.function.Function;
 
 
 public class WowcherApplication extends Controller {
-
-    public static Result index() {
-        return ok(index.render("Your new application is ready."));
-    }
 
     public static F.Promise<Result> locationDeals(String locationId) {
         Function<WowcherContext, Result> view_generation_code =

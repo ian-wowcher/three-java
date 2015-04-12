@@ -20,7 +20,7 @@ public class WowcherApplication extends Controller {
         Function<WowcherContext, Result> view_generation_code =
                 (wowcherContext) -> {
                 DealsListing dealsListing = SearchAdapter.getDeals();
-                return ok(views.html.dealsPage(wowcherContext, dealsListing));
+                return ok(views.html.dealsPage(dealsListing, wowcherContext));
         };
         WowcherContext context_with_location = WowcherContext.createWowcherLocationContext(locationId);
         return WowcherControllerUtil.WowcherAction(context_with_location, view_generation_code);

@@ -1,25 +1,26 @@
 package model;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 public class Deal {
 
-    long id;
-    public String closeTime;
-    public String product;
-    public String title;
-    public String description;
+    public long id = 1L;
+    public String closeTime = "23-12-17";
+    public String product = "product";
+    public String title = "title";
+    public String description = "description";
     public DealPrices prices;
-    public String businessName;
-    public String categoryId;
-    public String scheduledLocationName;
-    public Optional<String> finePrint ;
-    public List<String> highlights;
-    public String emailSubject;
-    public int purchaseCount;
-    public int soldOrLeftCount;
-    public int minLiveDeals;
+    public String businessName = "business name";
+    public String categoryId = "123";
+    public String scheduledLocationName = "schedule location name";
+    public Optional<String> finePrint;
+    public List<String> highlights = Arrays.asList(new String[]{"highlight one"});
+    public String emailSubject = "email subject";
+    public int purchaseCount = 1;
+    public int soldOrLeftCount = 12;
+    public int minLiveDeals = 1;
     public String soldOrLeftText;
     public List<Address> addresses;
     public List<Location> locations;

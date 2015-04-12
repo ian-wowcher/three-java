@@ -1,4 +1,4 @@
-@(deals:  List[Deal], showMainDeal:Boolean, showDetail:Boolean)(implicit context: WowcherContext)
+@(deals:  List[model.Deal], showMainDeal:Boolean, showDetail:Boolean)(implicit context: WowcherContext)
 
 @for((deal, index) <- deals.zipWithIndex) {
 @if((index == 0) && showMainDeal == true) {

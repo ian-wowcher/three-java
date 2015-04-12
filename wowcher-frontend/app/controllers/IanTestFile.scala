@@ -1,10 +1,7 @@
 package controllers
 
-import controllers.WowcherController.WowcherContext
-import model.{LocationsListing, Location}
-import play.api.mvc.{Request, Result, Action, AnyContent}
-
-import scala.concurrent.{ExecutionContext}
+import model.Location
+import play.api.mvc.{AnyContent, Request}
 
 class IanTestFile {
 

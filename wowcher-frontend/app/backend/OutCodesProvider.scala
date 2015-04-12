@@ -1,10 +1,7 @@
 package wowcher.backend
 
-import java.io.{Closeable, InputStreamReader}
+import java.io.InputStreamReader
 
-import com.github.tototoshi.csv.CSVReader
-import generic.Util
-import wowcher.backend.OutCodesProvider.{OutCodesProvider, PostCodeGeo, GeoCoordinates}
 import play.api.{Application, Play}
 
 /**

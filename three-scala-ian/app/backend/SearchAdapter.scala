@@ -1,7 +1,5 @@
 package backend
 
-import model.{SimpleDealsListing, Location, SimpleDeal}
-
 /** I have bodged a "search" adapter here.
 * In Three-Scala, getDeals returns a Future[DealsListing]
   *

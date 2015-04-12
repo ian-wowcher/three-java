@@ -1,9 +1,6 @@
 import com.typesafe.config.ConfigFactory
-import org.scalatest._
-import play.api.test._
-import play.api.test.Helpers._
-import org.scalatestplus.play._
-import scala.util.{Success, Failure, Try}
+
+import scala.util.{Failure, Success, Try}
 
 object RequiresBackend extends Tag("wowcher.RequiresBackend")
 class BackendIntegrationApplicationSpec extends PlaySpec with OneAppPerSuite with BeforeAndAfterAll {

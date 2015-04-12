@@ -3,8 +3,6 @@ package plugins
 import akka.actor.Kill
 import akka.util.Timeout
 import generic.DataCaching
-import DataCaching.CacheOptions
-import model.LocationsListing
 import play.api.{Application, Play, Plugin}
 
 import scala.concurrent.Await
@@ -29,7 +27,7 @@ class LocationsCachePlugin(implicit app: Application) extends Plugin {
   lazy val locationsCache = new {
     import akka.pattern.ask
 
-import scala.concurrent.duration._
+    import scala.concurrent.duration._
     implicit val timeout = Timeout(5.seconds)
     def get : LocationsListing = Await.result(mainActor.ask(DataCaching.Get).mapTo[LocationsListing], 5.seconds)
   }

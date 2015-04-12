@@ -2,10 +2,8 @@
  * Created on 27/08/2014.
  */
 
-import com.googlecode.htmlcompressor.compressor.HtmlCompressor
-import com.mohiva.play.htmlcompressor.HTMLCompressorFilter
 import play.api.mvc._
-import play.api.{Play, GlobalSettings}
+import play.api.{GlobalSettings, Play}
 object Global extends GlobalSettings {
   override def doFilter(next: EssentialAction): EssentialAction = {
     Filters(super.doFilter(next), new HTMLCompressorFilter({

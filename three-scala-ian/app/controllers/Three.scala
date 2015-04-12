@@ -1,8 +1,8 @@
 package controllers
 
-import backend.SearchAdapter
-import model.{Location, SimpleDeal}
-import play.api.mvc.{Controller, Request, AnyContent, Action, Result}
+import model.Location
+import play.api.mvc.{Action, AnyContent, Controller, Request, Result}
+
 import scala.concurrent.{ExecutionContext, Future}
 
 object Three extends Controller {

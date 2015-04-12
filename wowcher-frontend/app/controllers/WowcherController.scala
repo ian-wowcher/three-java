@@ -1,9 +1,8 @@
 package controllers
 
-import model.TypeaheadItem
-import wowcher.backend.OutCodesProvider.{PostCodeGeo, GeoCoordinates, PostCodeFragment}
-import play.api.mvc._
 import model._
+import play.api.mvc._
+
 import scala.concurrent.ExecutionContext
 
 trait WowcherController {

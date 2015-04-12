@@ -2,8 +2,6 @@ package generic
 
 import java.net.URLEncoder
 
-import controllers.WowcherController.WowcherContext
-
 /**
  * Created on 22/08/2014.
  */

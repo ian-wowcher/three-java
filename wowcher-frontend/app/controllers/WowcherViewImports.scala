@@ -6,7 +6,7 @@ package controllers
 object WowcherViewImports {
   type WowcherContext = WowcherController.WowcherContext
   type DealListing = model.DealListing
-  type DealsListing = model.DealsListing
+  type DealsListing = model.SimpleDealsListing
   type Deal = model.Deal
   type StaticPageListing = model.StaticPageListing
 }

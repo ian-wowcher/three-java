@@ -1,13 +1,12 @@
 package backend
 
-import model._
 import scala.concurrent.Future
 
 trait SearchAdapter {
 
   def getDeal(dealId: Int): Future[DealListing]
 
-  def getDeals(filter: DealsFilter): Future[DealsListing]
+  def getDeals(filter: DealsFilter): Future[SimpleDealsListing]
 
   def getCategories: Future[CategoriesListing]
 

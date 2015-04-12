@@ -1,9 +1,8 @@
 package controllers
 
-import controllers.WowcherController.WowcherContext
-import generic.JsonUtility
 import play.api.Play
 import play.api.mvc._
+
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.Try
 

@@ -1,6 +1,5 @@
 package controllers
 
-import plugins.{OutCodesProviderPlugin, SearchAdapterPlugin, LocationsCachePlugin}
 import play.api.Play
 import play.api.mvc._
 

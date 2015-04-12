@@ -1,18 +1,37 @@
 package model;
 
 import java.util.List;
+import java.util.Optional;
 
 public class Deal {
 
-    public final Long id;
-    public final String title;
-    public final String product;
-    public final List<Location> locations;
+    long id;
+    public String closeTime;
+    public String product;
+    public String title;
+    public String description;
+    public DealPrices prices;
+    public String businessName;
+    public String categoryId;
+    public String scheduledLocationName;
+    public Optional<String> finePrint ;
+    public List<String> highlights;
+    public String emailSubject;
+    public int purchaseCount;
+    public int soldOrLeftCount;
+    public int minLiveDeals;
+    public String soldOrLeftText;
+    public List<Address> addresses;
+    public List<Location> locations;
+    public ImageLinks imageLinks;
+    public DealConditions conditions;
 
-    public Deal(List<Location> locations, String product, String title, Long id) {
-        this.locations = locations;
-        this.product = product;
-        this.title = title;
-        this.id = id;
+
+    public SimpleDeal toSimpleDeal() {
+        return new SimpleDeal(
+                this.id,
+                this. title,
+                this. product,
+                this. locations);
     }
 }

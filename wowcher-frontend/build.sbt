@@ -1,4 +1,4 @@
-import com.atlassian.labs.gitstamp.GitStampPlugin._
+
 
 name := """wowcher-frontend"""
 

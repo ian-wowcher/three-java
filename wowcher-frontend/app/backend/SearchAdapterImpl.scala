@@ -2,9 +2,7 @@ package backend
 
 import java.net.URLEncoder
 
-import generic.JsonUtility
 import play.api.libs.ws.WS
-import model._
 
 import scala.concurrent.ExecutionContext
 
@@ -52,8 +50,7 @@ class SearchAdapterImpl(root: String)(implicit ec: ExecutionContext, app: play.a
    override def getTags = get[TagsListing](s"$root/tags/")
 
    override def getDeals(filter: DealsFilter) = {
-     import filter._
-     get[DealsListing] {
+     get[SimpleDealsListing] {
        val locationParam = locationId.map(URLEncoder.encode(_, "UTF-8")).map(i => s"location=$i").toList
        val qParam = q.map(URLEncoder.encode(_, "UTF-8")).map(i => s"q=$i").toList
        val distanceParam = distance.map(_.toString).map(URLEncoder.encode(_, "UTF-8")).map(i => s"distance=$i").toList

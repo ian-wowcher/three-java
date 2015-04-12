@@ -1,11 +1,11 @@
-@(dealsListing: DealsListing)(implicit context: WowcherContext)
+@(dealsListing: model.DealsListing)(implicit context: util.WowcherContext)
 
 @main("Welcome to Wowcher") {
-    @if(!dealsListing.deals.isEmpty) {
-
+        <h1>This is a test of the controller</h1>
         <section class="content">
-        @views.html.deals.dealList(dealsListing.deals, showMainDeal, true)
+            Request path: @{context.request.path}
+            Context locations: @{context.locations}
+            Context location: @{context.location}
+            Context frontendResourcePath @{context.frontendResourcePath}
         </section>
-
-    }
 }

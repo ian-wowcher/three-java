@@ -44,12 +44,22 @@ public final class WowcherContext {
         );
     }
 
-    public static WowcherContext createWowcherContextWithRequest(WowcherContext wowcherContext, Request request) {
+    public static WowcherContext recreateWowcherContextWithRequest(WowcherContext wowcherContext, Request request) {
         return new WowcherContext(
                 request,
                 wowcherContext.locations,
                 wowcherContext.location,
                 wowcherContext.frontendResourcePath
         );
+    }
+
+    @Override
+    public String toString() {
+        return "WowcherContext{" +
+                "request=" + request + "\n" +
+                ", locations=" + locations + "\n" +
+                ", location='" + location + '\'' + "\n" +
+                ", frontendResourcePath='" + frontendResourcePath + '\'' +
+                '}';
     }
 }

@@ -15,7 +15,7 @@ import java.util.List;
 public class LocationsCache extends Plugin {
 
         //this will eventually cache the deals API response
-        static Location[] locations = {
+        private static Location[] locations = {
                     new Location("london", "London"),
                     new Location("oxford", "Oxford"),
                     new Location("birmingham", "Birmingham")

@@ -35,4 +35,10 @@ public class Deal {
                 this. product,
                 this. locations);
     }
+
+    public Deal(String title, String description, String businessName) {
+        this.title = title;
+        this.description = description;
+        this.businessName = businessName;
+    }
 }

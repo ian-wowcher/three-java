@@ -28,8 +28,8 @@ public class WowcherControllerUtil extends Controller {
     * */
     public static F.Promise<Result> WowcherAction(WowcherContext wowcherContext,
                                                                Function<WowcherContext, Result> view_generation_code){
-        WowcherContext createdWowcherContext = WowcherContext.createWowcherContextWithRequest(wowcherContext, request());
-
+        //add request information to the context
+        WowcherContext createdWowcherContext = WowcherContext.recreateWowcherContextWithRequest(wowcherContext, request());
         //invoke the passed in function
         return F.Promise.promise(() -> view_generation_code.apply(createdWowcherContext));
     }

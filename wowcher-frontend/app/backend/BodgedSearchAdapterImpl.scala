@@ -9,7 +9,7 @@ import scala.concurrent.ExecutionContext
 /**
   * Created on 22/07/2014.
   */
-class SearchAdapterImpl(root: String)(implicit ec: ExecutionContext, app: play.api.Application) extends SearchAdapter {
+class BodgedSearchAdapterImpl(root: String)(implicit ec: ExecutionContext, app: play.api.Application) extends BodgedSearchAdapter {
 
    private def getBody(url: String) =
      for {

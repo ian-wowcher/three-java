@@ -13,7 +13,9 @@ import java.util.function.Function;
 public class WowcherApplication extends Controller {
 
 /*
-     Prototype version - TODO return a promise result - the framework redeems the promise
+     1) Uses the Api to get a deals listing
+     Generates the dealsPage
+     All async by only returning promises.
 */
     public static F.Promise<Result> apiLocationDeals(String locationId) {
         Function<WowcherContext, F.Promise<Result>> view_generation_code =

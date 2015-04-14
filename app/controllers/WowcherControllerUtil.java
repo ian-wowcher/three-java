@@ -27,7 +27,16 @@ public class WowcherControllerUtil extends Controller {
     * returns: (an async action!!) Action[AnyContent]
     * */
     public static F.Promise<Result> WowcherAction(WowcherContext wowcherContext,
-                                                               Function<WowcherContext, Result> view_generation_code){
+                                                               Function<WowcherContext, F.Promise<Result>> view_generation_code){
+        //add request information to the context
+        WowcherContext createdWowcherContext = WowcherContext.recreateWowcherContextWithRequest(wowcherContext, request());
+        //invoke the passed in function
+        return view_generation_code.apply(createdWowcherContext);
+    }
+
+    /* bodged wowcher action*/
+    public static F.Promise<Result> BodgedWowcherAction(WowcherContext wowcherContext,
+                                                  Function<WowcherContext, Result> view_generation_code){
         //add request information to the context
         WowcherContext createdWowcherContext = WowcherContext.recreateWowcherContextWithRequest(wowcherContext, request());
         //invoke the passed in function

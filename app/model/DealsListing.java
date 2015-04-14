@@ -14,4 +14,11 @@ public class DealsListing {
     public DealsListing(List<Deal> deals) {
             this.deals = deals;
     }
+
+    @Override
+    public String toString() {
+        return "DealsListing{" +
+                "deals=" + deals +
+                '}';
+    }
 }

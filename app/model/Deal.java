@@ -36,7 +36,8 @@ public class Deal {
                 this. locations);
     }
 
-    public Deal(String title, String description, String businessName) {
+    public Deal(String product, String title, String description, String businessName) {
+        this.product = product;
         this.title = title;
         this.description = description;
         this.businessName = businessName;

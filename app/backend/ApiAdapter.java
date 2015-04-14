@@ -32,7 +32,7 @@ public class ApiAdapter {
         final String feedUrl = DEALS_BY_LOCATION.replace(LOCATION_PLACEHOLDER, location);
         return WS.url(feedUrl).setHeader("Accept", "application/json").get().map(
                 response -> {
-                    System.out.println("the beginning of the response is : " + response.getBody().substring(0, 100));
+                    System.out.println("the middle of the response is : " + response.getBody().substring(0, 1000));
 
                     JsonNode dealFeedResponse = response.asJson();
                     List<Deal> dealList = new ArrayList();
@@ -41,9 +41,10 @@ public class ApiAdapter {
                     deals.iterator().forEachRemaining(
                             node -> {
                                 String title = node.findValue("title").textValue();
+                                String dealProduct = node.findValue("dealProduct").textValue();
                                 String dealDescription = node.findValue("dealDescription").textValue();
                                 String businessName = node.findValue("businessName").textValue();
-                                dealList.add(new Deal(title, dealDescription, businessName));
+                                dealList.add(new Deal(dealProduct, title, dealDescription, businessName));
                             }
                     );
                     return new DealsListing(dealList);

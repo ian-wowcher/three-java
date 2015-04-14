@@ -1,11 +1,19 @@
 @(dealsListing: model.DealsListing, context: util.WowcherContext)
 
-@main("Welcome to Wowcher") {
-        <h1>This is a test of the controller</h1>
+@main("Location Deals Page") {
+        <h1>Here are all the deals for: @{context.location}</h1>
         <section class="content">
-            The WowcherContext's toString method gives me:
+            The WowcherContext's toString method returns:
                 <br/>
                 @{context}
-
+                <br>
+            The DealsListing toString method returns:
+            <br>
+            @for(deal <- dealsListing.deals) {
+                <h1>@{deal.product}</h1>
+                <h2>@{deal.title}</h2>
+                <p>@Html(deal.description)</p>
+                <br/>
+            }
         </section>
 }

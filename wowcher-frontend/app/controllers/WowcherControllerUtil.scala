@@ -35,7 +35,8 @@ trait WowcherControllerUtil {
   def WowcherAction(passedInFunction: WowcherContext => ExecutionContext => Future[Result]) : Action[AnyContent] = {
     Action.async { implicit request =>
       val wowcherContext = createWowcherContext(request)
-      passedInFunction(wowcherContext)(wowcherContext.executionContext)
+      return passedInFunction(wowcherContext)(wowcherContext.executionContext)
+      return future_result;
     }
   }
 

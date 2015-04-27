@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+// TODO make immutable
 public class Deal {
 
     public long id = 1L;

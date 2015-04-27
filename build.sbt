@@ -1,4 +1,4 @@
-name := """play-java"""
+name := """three-java"""
 
 version := "1.0-SNAPSHOT"
 

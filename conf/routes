@@ -6,4 +6,4 @@
 GET        /assets/*file        controllers.Assets.at(path="/public", file)
 
 #Deals for a location
-GET        /deals/:location     controllers.WowcherApplication.apiLocationDeals(location)
+GET        /deals/:location     controllers.WowcherApplication.locationDeals(location)

@@ -1,6 +1,7 @@
 package util;
 
 import model.Location;
+import play.mvc.Http;
 import play.mvc.Http.Request;
 import plugins.LocationsCache;
 
@@ -14,6 +15,8 @@ public final class WowcherContext {
     public final String location;
     public final String frontendResourcePath;
 
+    public static final String defaultLocation = "London";
+
     public WowcherContext(Request request, List<Location> locations, String location, String frontendResourcePath) {
         this.request = request;
         this.locations = locations;
@@ -21,37 +24,43 @@ public final class WowcherContext {
         this.frontendResourcePath = frontendResourcePath;
     }
 
-    public WowcherContext(WowcherContext wowcherContext, Request request) {
-        this(
-                request,
-                wowcherContext.locations,
-                wowcherContext.location,
-                wowcherContext.frontendResourcePath);
-    }
+    public static WowcherContext createFromHttpContext(Http.Context httpContext) {
 
-    public static WowcherContext createWowcherLocationContext(String locationId) {
-        /*
-        *  def createWowcherContext(request: Request[AnyContent]) = {
+        List<Location> cachedLocations = LocationsCache.locations();
+        String frontendResourcePath = "frontendResourcePath";
 
-    WowcherContext(request, locationsCache.get.locations.sortBy(_.name), frontendResourcePath = frontendResourcePath)
-  }
-        * */
         return new WowcherContext(
-                null,
-                LocationsCache.locations(),
-                locationId,
-                "/frontend_resource_path" //TODO get from application configuration
+                httpContext.request(),
+                cachedLocations,
+                defaultLocation,
+                frontendResourcePath
         );
+
     }
 
-    public static WowcherContext recreateWowcherContextWithRequest(WowcherContext wowcherContext, Request request) {
+    public static WowcherContext replaceLocationInContext(String locationId, WowcherContext wowcherContext) {
+
         return new WowcherContext(
-                request,
+                wowcherContext.request,
                 wowcherContext.locations,
-                wowcherContext.location,
+                locationId,
                 wowcherContext.frontendResourcePath
         );
     }
+
+//TODO now redundant
+//    public static WowcherContext recreateWowcherContextWithRequest(WowcherContext wowcherContext, Request request) {
+//        return new WowcherContext(
+//                request,
+//                wowcherContext.locations,
+//                wowcherContext.location,
+//                wowcherContext.frontendResourcePath
+//        );
+//    }
+
+
+
+
 
     @Override
     public String toString() {

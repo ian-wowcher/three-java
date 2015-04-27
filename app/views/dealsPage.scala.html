@@ -1,13 +1,11 @@
-@(dealsListing: model.DealsListing, context: util.WowcherContext)
+@(dealsListing: model.DealsListing)
 
 @main("Location Deals Page") {
-        <h1>Here are all the deals for: @{context.location}</h1>
+
+        @nestedPage.render()
+
+        <h1>Here are all the deals for: </h1>
         <section class="content">
-            The WowcherContext's toString method returns:
-                <br/>
-                @{context}
-                <br>
-            The DealsListing toString method returns:
             <br>
             @for(deal <- dealsListing.deals) {
                 <h1>@{deal.product}</h1>

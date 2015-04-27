@@ -28,6 +28,7 @@ public class WowcherApplication extends Controller {
                 };
         WowcherContext wowcherContext = (WowcherContext) ctx().args.get("wowcherContext");
         WowcherContext context_with_location = WowcherContext.replaceLocationInContext(locationId, wowcherContext);
+        ctx().args.put("wowcherContext", context_with_location);
         return WowcherControllerUtil.WowcherAction(context_with_location, view_generation_code);
     }
 }

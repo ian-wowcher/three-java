@@ -1,4 +1,6 @@
-        <h1>I am a nested page</h1>
-        <p>This is nested content</p>
+@wowcherContext = @{ ctx().args.get("wowcherContext").asInstanceOf[util.WowcherContext]}
+<h1>I am a nested page</h1>
+<p>This is nested content
 
-            @ctx().args.get("wowcherContext")
+The location value of the context is:  @wowcherContext.location
+</p>

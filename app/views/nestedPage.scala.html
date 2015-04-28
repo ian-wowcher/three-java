@@ -1,6 +1,33 @@
 @wowcherContext = @{ ctx().args.get("wowcherContext").asInstanceOf[util.WowcherContext]}
-<h1>I am a nested page</h1>
-<p>This is nested content
 
-The location value of the context is:  @wowcherContext.location
-</p>
+
+
+
+<h1>Getting locations from the cache else the API</h1>
+<select id="locationDropdown" name="locations" >
+    @for(location <- wowcherContext.locations) {
+        @if(location.id.equals(wowcherContext.location)) {
+            <option selected value="@location.id">@location.name</option>
+        } else {
+            <option value="@location.id">@location.name</option>
+        }
+
+       }
+</select>
+
+
+<h1>I am a nested page</h1>
+<p>This is nested content</p>
+
+The location value of the context is: @wowcherContext.location
+
+<script>
+
+var locationDropdown = document.getElementById("locationDropdown");
+locationDropdown.addEventListener("change", function() {
+    var locationInBox = locationDropdown.value;
+    console.log("location value is" + locationDropdown.locationInBox);
+    window.location.href = "/deals/" + locationInBox;
+});
+
+</script>

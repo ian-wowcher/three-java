@@ -1,7 +1,6 @@
 package controllers;
 
 import backend.ApiAdapter;
-import backend.BodgedSearchAdapter;
 import interceptors.WowcherInterceptor;
 import model.DealsListing;
 import play.libs.F;
@@ -23,7 +22,7 @@ public class WowcherApplication extends Controller {
     public static F.Promise<Result> locationDeals(String locationId) {
         Function<WowcherContext, F.Promise<Result>> view_generation_code =
                 (wowcherContext) -> {
-                    F.Promise<DealsListing> dealsListingPromise = ApiAdapter.getDeals(locationId);
+                    F.Promise<DealsListing> dealsListingPromise = ApiAdapter.getDealsListing(locationId);
                     return dealsListingPromise.map((dlr) -> ok(views.html.dealsPage.apply(dlr)));
                 };
         WowcherContext wowcherContext = (WowcherContext) ctx().args.get("wowcherContext");

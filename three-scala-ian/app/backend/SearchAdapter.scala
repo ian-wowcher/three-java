@@ -1,7 +1,7 @@
 package backend
 
 /** I have bodged a "search" adapter here.
-* In Three-Scala, getDeals returns a Future[DealsListing]
+* In Three-Scala, getDealsListing returns a Future[DealsListing]
   *
   * Here, I am instead retrieving a list of simple deals.
   */

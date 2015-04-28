@@ -13,7 +13,7 @@ public class WowcherInterceptor extends play.mvc.Action.Simple{
     public F.Promise<Result> call(Http.Context ctx) throws Throwable {
         final WowcherContext wowcherContext = WowcherContext.createFromHttpContext(ctx);
         ctx.args.put("wowcherContext", wowcherContext);
-        Logger.info("Added the WowcherContext to the Http.Context: " + wowcherContext);
+        Logger.info("Added the WowcherContext to the Http.Context");
         return delegate.call(ctx);
     }
 

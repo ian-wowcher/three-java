@@ -3,7 +3,7 @@ package util;
 import model.Location;
 import play.mvc.Http;
 import play.mvc.Http.Request;
-import plugins.LocationsCache;
+import plugins.WowcherCache;
 
 import java.util.List;
 
@@ -24,9 +24,9 @@ public final class WowcherContext {
         this.frontendResourcePath = frontendResourcePath;
     }
 
-    public static WowcherContext createFromHttpContext(Http.Context httpContext) {
+    public static WowcherContext createFromHttpContext(Http.Context httpContext) throws Exception {
 
-        List<Location> cachedLocations = LocationsCache.locations();
+        List<Location> cachedLocations = WowcherCache.locations();
         String frontendResourcePath = "frontendResourcePath";
 
         return new WowcherContext(

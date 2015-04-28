@@ -1,10 +1,12 @@
 @(dealsListing: model.DealsListing)
+@wowcherContext = @{ ctx().args.get("wowcherContext").asInstanceOf[util.WowcherContext]}
+
 
 @main("Location Deals Page") {
 
         @nestedPage.render()
 
-        <h1>Here are all the deals for: </h1>
+        <h1>Here are all the deals for: @wowcherContext.location</h1>
         <section class="content">
             <br>
             @for(deal <- dealsListing.deals) {
